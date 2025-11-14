@@ -54,7 +54,7 @@ export default function Home() {
           transition={{ duration: 1 }}
         >
           <TechStackSection />
-          <CertificatesSection />
+          {/* <CertificatesSection /> */}
           <Experience />
           <ProjectsSection />
           <ContactSection />

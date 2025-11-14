@@ -4,6 +4,8 @@ export const skills = [
     { name: "MERN Stack", level: 85 },
     { name: "AI Integration", level: 70 },
     { name: "Tailwind / UI Design", level: 85 },
+    { name: "Firebase", level: 80 },
+    { name: "Supabase", level: 80 },
     { name: "Node.js & Express", level: 75 },
     { name: "MongoDB", level: 80 },
   ];

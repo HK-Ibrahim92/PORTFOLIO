@@ -136,9 +136,16 @@ export default function ExperienceSection() {
             <span className="text-3xl">🎓</span>
           </div>
           <div>
-            <h4 className="text-lg font-semibold text-white">{edu.title}</h4>
-            <p className="text-sm text-gray-400">{edu.institution}</p>
-            <p className="text-sm text-purple-400">{edu.year}</p>
+          <h4 className="text-lg font-semibold text-white">{edu.degree}</h4>
+        <p className="text-sm text-gray-400">{edu.institution}</p>
+        <p className="text-sm text-purple-400">{edu.year}</p>
+
+        {/* Description only if exists */}
+        {edu.description && (
+          <p className="text-sm text-gray-300 mt-2 leading-relaxed">
+            {edu.description}
+          </p>
+        )}
           </div>
         </div>
       </motion.div>
