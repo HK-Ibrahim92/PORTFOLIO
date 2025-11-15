@@ -39,7 +39,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="bg-slate-950 min-h-screen ">
+    <main className="bg-slate-950 min-h-screen  ">
       <Navbar />
 
       {/* Hero Section */}

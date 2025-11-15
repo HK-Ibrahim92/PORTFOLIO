@@ -15,24 +15,24 @@ export default function Navbar() {
     { name: "Education", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ]
-const [show, setShow] = useState(false)
-// trigger split screen after 2s
+  const [show, setShow] = useState(false)
+  // trigger split screen after 2s
   useEffect(() => {
     const timer = setTimeout(() => setShow(true), 500)
     return () => clearTimeout(timer)
   }, [])
 
-  if (!show) return null 
+  if (!show) return null
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        
+
         {/* Logo */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-2xl font-extrabold text-white"
+          className="text-xl sm:text-2xl font-extrabold text-white"
         >
           <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-400 bg-clip-text text-transparent">
             Ibrahim.dev
@@ -40,50 +40,44 @@ const [show, setShow] = useState(false)
         </motion.div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-white font-medium">
+        <ul className="hidden lg:flex space-x-8 text-white font-medium">
           {navItems.map((item, i) => (
-          
-
-          <motion.li
-          key={i}
-          whileHover={{ scale: 1.1, color: "#a855f7" }}
-          transition={{ type: "spring", stiffness: 300 }}
-          >
-              <Link href={item.href} className="hover:text-purple-400 hover:cursor-pointer transition-colors">
-
-          <button
-            onClick={() => {
-              document.querySelector(item.href)?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              })
-            }}
-            className="hover:text-purple-400 hover:cursor-pointer transition-colors"
-          >
-            {item.name}
-          </button>
-          </Link>
-
-          </motion.li>
-
+            <motion.li
+              key={i}
+              whileHover={{ scale: 1.1, color: "#a855f7" }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <button
+                onClick={() => {
+                  document.querySelector(item.href)?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  })
+                  setIsOpen(false)
+                }}
+                className="hover:text-purple-400 hover:cursor-pointer transition-colors"
+              >
+                {item.name}
+              </button>
+            </motion.li>
           ))}
         </ul>
 
         {/* CV Button (Desktop) */}
-       <a
-  href="/Khawaja-Ibrahim-Ahmed__Resume.pdf"
-  download
-  title="Download CV"
-  className="hidden md:inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 px-5 py-2 rounded-lg font-semibold text-white transition-all transform hover:scale-105 shadow-lg"
->
-  Download CV
-</a>
-
+       <a 
+          href="/Khawaja-Ibrahim-Ahmed__Resume.pdf"
+          download
+          title="Download CV"
+          className="hidden lg:inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 px-4 py-2 rounded-lg font-semibold text-white transition-all transform hover:scale-105 shadow-lg text-sm"
+        >
+          Download CV
+        </a>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white text-3xl focus:outline-none hover:cursor-pointer"
+          className="lg:hidden text-white text-3xl focus:outline-none hover:cursor-pointer z-50"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -95,21 +89,26 @@ const [show, setShow] = useState(false)
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-black/90 backdrop-blur-lg"
+          className="lg:hidden bg-black/90 backdrop-blur-lg"
         >
           <ul className="flex flex-col items-center py-6 space-y-4 text-white font-medium">
             {navItems.map((item, i) => (
               <li key={i}>
-                <Link
-                  href={item.href}
+                <button
+                  onClick={() => {
+                    document.querySelector(item.href)?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    })
+                    setIsOpen(false)
+                  }}
                   className="hover:text-purple-400 transition-colors"
-                  onClick={() => setIsOpen(false)}
                 >
                   {item.name}
-                </Link>
+                </button>
               </li>
             ))}
-            <a
+           <a 
               href="/Khawaja-Ibrahim-Ahmed__Resume.pdf"
               download
               className="mt-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 px-5 py-2 rounded-lg font-semibold text-white transition-all transform hover:scale-105 shadow-lg"
