@@ -10,32 +10,53 @@ export const TextGenerateEffect = ({
   duration = 0.5
 }) => {
   const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
+
+  // Split words and mark the special phrase
+  let wordsArray = words.split(" ").map((word, idx) => {
+    if (
+      word.toLowerCase().includes("high-quality") ||
+      word.toLowerCase().includes("results") ||
+      word.includes("MERN") 
+
+    ) {
+      return { text: word, highlight: true };
+    }
+    return { text: word, highlight: false };
+  });
+
   useEffect(() => {
-    animate("span", {
-      opacity: 1,
-      filter: filter ? "blur(0px)" : "none",
-    }, {
-      duration: duration ? duration : 1,
-      delay: stagger(0.2),
-    });
+    animate(
+      "span",
+      {
+        opacity: 1,
+        filter: filter ? "blur(0px)" : "none",
+      },
+      {
+        duration: duration ? duration : 1,
+        delay: stagger(0.2),
+      }
+    );
   }, [scope.current]);
 
   const renderWords = () => {
     return (
       <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => {
-          return (
-            <motion.span
-              key={word + idx}
-              className="dark:text-white text-black opacity-0"
-              style={{
-                filter: filter ? "blur(10px)" : "none",
-              }}>
-              {word}{" "}
-            </motion.span>
-          );
-        })}
+        {wordsArray.map((wordObj, idx) => (
+          <motion.span
+            key={wordObj.text + idx}
+            className={cn(
+              "opacity-0",
+              wordObj.highlight
+                ? "font-extrabold text-purple-500" // Highlight style
+                : "dark:text-white text-black"
+            )}
+            style={{
+              filter: filter ? "blur(10px)" : "none",
+            }}
+          >
+            {wordObj.text}{" "}
+          </motion.span>
+        ))}
       </motion.div>
     );
   };
@@ -43,8 +64,7 @@ export const TextGenerateEffect = ({
   return (
     <div className={cn("font-bold", className)}>
       <div className="mt-4">
-        <div
-          className=" dark:text-white text-black text-xl leading-snug tracking-wide">
+        <div className="dark:text-white text-black text-xl leading-snug tracking-wide">
           {renderWords()}
         </div>
       </div>

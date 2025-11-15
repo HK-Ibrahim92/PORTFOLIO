@@ -31,15 +31,21 @@ export default function HeroSplit() {
           Ibrahim Ahmed
         </h1>
         <p className="text-xl md:text-2xl mb-6 text-gray-300 text-center md:text-left">
-          Frontend Developer | MERN | AI Enthusiast
+          Frontend Developer | MERN | Modern Animated Landing Pages | Dashboard Solutions
         </p>
         <div className="flex space-x-6">
-          <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-all">
-            Hire Me
-          </button>
-          <button className="bg-transparent border border-purple-600 hover:bg-purple-600 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all">
-            View My Work
-          </button>
+       <button
+  onClick={() => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 hover:cursor-pointer shadow-lg"
+>
+  Let’s Discuss Your Project
+</button>
+
         </div>
       </motion.div>
 

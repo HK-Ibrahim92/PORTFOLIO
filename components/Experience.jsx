@@ -88,7 +88,7 @@ export default function ExperienceSection() {
                 >
                   <CircularProgressbar
                     value={skill.level}
-                    text={`${skill.level}%`}
+                    text={`✓`}
                     styles={buildStyles({
                       pathColor: "rgba(147, 51, 234, 0.9)",
                       textColor: "#fff",
@@ -155,13 +155,13 @@ export default function ExperienceSection() {
 
       </div>
       {/* Download CV */}
-      <a
+      {/* <a
         href="/Khawaja-Ibrahim-Ahmed__Resume.pdf"
         download
         className="inline-flex items-center mt-10 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-purple-500/50"
       >
         <span className="mr-2">⬇️</span> Download CV
-      </a>
+      </a> */}
     </section>
   );
 }

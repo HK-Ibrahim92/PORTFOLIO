@@ -3,20 +3,20 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import myPhoto from "@/public/me.jpg" // your profile image
+import myPhoto from "@/public/ibrahim_redbg_ai.png" 
 import { TextGenerateEffect } from "./effects/TextGenerateEffect"
 import { TextRevealCard } from "./TextRevealCard"
 
 export default function SplitScreen() {
+  const words = `Craft modern MERN websites, Landing pages featuring animations and responsive design. My solutions are fast, responsive, and visually engaging, helping businesses and achieve real solutions. Deliver fast, high-quality results`;
   const [show, setShow] = useState(false)
-  const words = `Craft high-quality, modern websites with MERN, and AI-powered features. My solutions are fast, responsive, and visually engaging, helping businesses impress clients and achieve real results.`;
-  // trigger split screen after 2s
+// trigger split screen after 2s
   useEffect(() => {
     const timer = setTimeout(() => setShow(true), 500)
     return () => clearTimeout(timer)
   }, [])
 
-  if (!show) return null // hide until triggered
+  if (!show) return null 
 
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center mt-12">
@@ -31,16 +31,21 @@ export default function SplitScreen() {
         <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
           Ibrahim Ahmed
         </h1>
-        <p className="text-xl md:text-2xl mb-6 text-gray-300">
-          Frontend Developer | MERN | AI Enthusiast
+          <p className="text-xl md:text-2xl mb-6 text-gray-300 text-center md:text-left">
+          Frontend Developer | MERN | Modern Animated Landing Pages | Dashboard Solutions
         </p>
         <div className="flex space-x-6">
-          <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-all">
-            Hire Me
-          </button>
-          <button className="bg-transparent border border-purple-600 hover:bg-purple-600 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all">
-            View My Work
-          </button>
+       <button
+  onClick={() => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 hover:cursor-pointer shadow-lg"
+>
+  Let’s Discuss Your Project
+</button>
         
         </div>
         <TextGenerateEffect words={words} />
@@ -58,8 +63,8 @@ export default function SplitScreen() {
           src={myPhoto}
           alt="Ibrahim Ahmed"
           className="rounded-2xl shadow-2xl"
-          width={400}
-          height={400}
+          width={300}
+          height={350}
         />
       </motion.div>
     </div>

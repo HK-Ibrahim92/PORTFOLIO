@@ -8,17 +8,17 @@ export default function Footer() {
     {
       name: "GitHub",
       icon: <Github size={22} />,
-      href: "https://github.com/yourusername", // 🔗 replace
+      href: "https://github.com/HK-Ibrahim92/", // 🔗 replace
     },
     {
       name: "LinkedIn",
       icon: <Linkedin size={22} />,
-      href: "https://linkedin.com/in/yourusername", // 🔗 replace
+      href: "www.linkedin.com/in/ibrahim-ahmed-649453279", // 🔗 replace
     },
     {
       name: "Email",
       icon: <Mail size={22} />,
-      href: "mailto:your@email.com", // 🔗 replace
+      href: "mailto:syedibrahim5436@email.com", // 🔗 replace
     },
   ]
 

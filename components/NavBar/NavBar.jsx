@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Menu, X } from "lucide-react" // for icons
@@ -9,13 +9,20 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
-    { name: "Home", href: "#home" },
+    { name: "Intro", href: "#home" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
-    { name: "Certificates", href: "#certifications" },
+    { name: "Education", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ]
+const [show, setShow] = useState(false)
+// trigger split screen after 2s
+  useEffect(() => {
+    const timer = setTimeout(() => setShow(true), 500)
+    return () => clearTimeout(timer)
+  }, [])
 
+  if (!show) return null 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -63,13 +70,15 @@ export default function Navbar() {
         </ul>
 
         {/* CV Button (Desktop) */}
-        <a
-          href="/Khawaja-Ibrahim-Ahmed__Resume.pdf"
-          download
-          className="hidden md:inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 px-5 py-2 rounded-lg font-semibold text-white transition-all transform hover:scale-105 shadow-lg"
-        >
-          Download CV
-        </a>
+       <a
+  href="/Khawaja-Ibrahim-Ahmed__Resume.pdf"
+  download
+  title="Download CV"
+  className="hidden md:inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 px-5 py-2 rounded-lg font-semibold text-white transition-all transform hover:scale-105 shadow-lg"
+>
+  Download CV
+</a>
+
 
         {/* Mobile Menu Button */}
         <button

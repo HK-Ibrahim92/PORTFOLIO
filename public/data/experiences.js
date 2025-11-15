@@ -4,9 +4,11 @@ export const experiences = [
       company: "Linked Things",
       duration: "Feb 2024 – Present | Karachi",
       description: [
-        "Built Attendance Management System (React.js, Tailwind, REST APIs, reporting)",
-        "Developed Inventory Management frontend with supplier & stock modules",
+        "Built Attendance Management System (MERN)",
+        "Developed Inventory Management frontend + backend with supplier & stock modules",
         "Contributed to IoT Platform (React dashboards + Node/Express/MongoDB backend)",
+        "Worked on company websites, improving UI/UX, performance, and responsive design"
+
       ],
     },
     {
