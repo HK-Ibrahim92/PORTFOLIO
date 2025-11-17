@@ -71,12 +71,16 @@ export default function SplitScreen() {
   </div>
 </motion.div>
       </div>
-      <div className="flex justify-center items-center mt-5 ">
-        <TextRevealCard
-          text="Looking for a passionate frontend developer?"
-          revealText="I craft high-performance UIs with React & Next.js 🚀"
-        ></TextRevealCard>
-      </div>
+      <div className="w-full flex justify-center mt-5 px-4">
+  <div className="w-full max-w-[95vw] sm:max-w-[85vw] md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
+    <TextRevealCard
+      text="Looking for a passionate frontend developer?"
+      revealText="I craft high-performance UIs with React & Next.js 🚀"
+    />
+  </div>
+</div>
+
+
     </div>
   )
 }

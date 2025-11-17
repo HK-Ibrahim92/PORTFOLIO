@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState, memo } from "react";
 import { motion } from "motion/react";
-import { twMerge } from "tailwind-merge";
-import { cn } from "@/lib/utils";
+
+const cn = (...classes) => classes.filter(Boolean).join(" ");
 
 export const TextRevealCard = ({
   text,
@@ -62,13 +62,11 @@ export const TextRevealCard = ({
       onTouchMove={touchMoveHandler}
       ref={cardRef}
       className={cn(
-        // "bg-[#1d1c20] border border-white/[0.08] w-[55rem] rounded-lg p-1 relative overflow-hidden text-center",
-        "bg-slate-950 border border-white/[0.08] w-[55rem] rounded-4xl p-1 relative overflow-hidden text-center",
-
+        "bg-slate-950 border border-white/[0.08] w-full  rounded-2xl sm:rounded-3xl md:rounded-4xl p-1 relative overflow-hidden text-center",
         className
       )}>
       {children}
-      <div className="h-15  relative flex items-center overflow-hidden">
+      <div className="h-auto min-h-[80px] sm:min-h-[100px] md:min-h-[120px] relative flex items-center overflow-hidden">
         <motion.div
           style={{
             width: "100%",
@@ -84,12 +82,12 @@ export const TextRevealCard = ({
                 }
           }
           transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-          className="absolute bg-slate-950 z-20  will-change-transform">
+          className="absolute bg-slate-950 z-20 will-change-transform">
           <p
             style={{
               textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
             }}
-            className="text-base sm:text-[2rem] py-8 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+            className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-[2rem] py-4 sm:py-6 md:py-8 px-2 sm:px-4 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300 leading-tight sm:leading-normal">
             {revealText}
           </p>
         </motion.div>
@@ -100,15 +98,10 @@ export const TextRevealCard = ({
             opacity: widthPercentage > 0 ? 1 : 0,
           }}
           transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-        //   className="h-40 w-[8px] bg-gradient-to-b from-transparent via-neutral-800 to-transparent absolute z-50 will-change-transform flex justify-center text-center"
-          >
-            
-          </motion.div>
+        />
 
-        <div
-          className=" overflow-hidden flex justify-items-center [mask-image:linear-gradient(to_bottom,transparent,white,transparent)] w-full">
-          <p
-            className="text-base sm:text-[2rem] py-8 font-bold bg-clip-text text-transparent bg-[#323238] flex justify-center text-center w-full">
+        <div className="overflow-hidden flex justify-items-center [mask-image:linear-gradient(to_bottom,transparent,white,transparent)] w-full">
+          <p className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-[2rem] py-4 sm:py-6 md:py-8 px-2 sm:px-4 font-bold bg-clip-text text-transparent bg-[#323238] flex justify-center text-center w-full leading-tight sm:leading-normal">
             {text}
           </p>
           <MemoizedStars />
@@ -117,7 +110,6 @@ export const TextRevealCard = ({
     </div>
   );
 };
-
 
 const Stars = () => {
   const randomMove = () => Math.random() * 4 - 2;
@@ -156,3 +148,4 @@ const Stars = () => {
 };
 
 export const MemoizedStars = memo(Stars);
+

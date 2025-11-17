@@ -63,7 +63,7 @@ export default function ExperienceSection() {
               <p className="text-purple-400 font-medium">
                 {exp.company} | {exp.duration}
               </p>
-              <ul className="list-disc list-inside mt-3 text-gray-300 space-y-1">
+              <ul className="list-disc  list-outside mt-3 ml-5 text-gray-300 space-y-1">
                 {exp.description.map((point, idx) => (
                   <li key={idx}>{point}</li>
                 ))}
