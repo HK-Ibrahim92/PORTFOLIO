@@ -35,7 +35,7 @@ export default function ProjectsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: i * 0.2 }}
             className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-purple-500/50 hover:scale-105 transition-transform duration-300 flex flex-col cursor-pointer"
-            onClick={() => setSelected(project)}
+            // onClick={() => setSelected(project)}
           >
             <div className="p-6 flex-1 flex flex-col">
               <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>

@@ -121,7 +121,7 @@ export default function ExperienceSection() {
     Education
   </h3>
 
-  <div className="grid md:grid-cols-2 gap-8">
+  <div className="grid md:grid-cols-3 gap-8 justify-center">
     {education.map((edu, i) => (
       <motion.div
         key={i}
@@ -141,11 +141,11 @@ export default function ExperienceSection() {
         <p className="text-sm text-purple-400">{edu.year}</p>
 
         {/* Description only if exists */}
-        {edu.description && (
+        {/* {edu.description && (
           <p className="text-sm text-gray-300 mt-2 leading-relaxed">
             {edu.description}
           </p>
-        )}
+        )} */}
           </div>
         </div>
       </motion.div>
